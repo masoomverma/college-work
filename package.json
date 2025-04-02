@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "echo \"No build step required for static site\"",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "serve public"
+    "start": "serve dist"
   },
   "dependencies": {
     "react": "^19.0.0",
