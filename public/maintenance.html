@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance - KnowledgeBase App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .maintenance-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: #4a00e0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #4a00e0;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .timeframe {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            display: inline-block;
+        }
+        .contact {
+            margin-top: 30px;
+        }
+        .contact a {
+            color: #4a00e0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .progress-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 30px auto;
+            background-color: #e9ecef;
+            border-radius: 30px;
+            height: 30px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 75%;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="maintenance-icon">🛠️</div>
+        <h1>We're Currently Under Maintenance</h1>
+        <p>We're making some improvements to the College Work App. We'll be back online shortly!</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar">75% Complete</div>
+        </div>
+        
+        <div class="timeframe">
+            <p><strong>Estimated completion time:</strong></p>
+            <p id="completion-time">August 31, 2023 - 18:00 UTC</p>
+        </div>
+        
+        <p>We apologize for any inconvenience this may cause. Thank you for your patience.</p>
+        
+        <div class="contact">
+            <p>If you need immediate assistance, please contact us at:</p>
+            <p><a href="mailto:support@collegeworkapp.com">support@collegeworkapp.com</a></p>
+        </div>
+    </div>
+
+    <script>
+        // You can update the estimated completion time dynamically
+        function updateCompletionTime() {
+            const now = new Date();
+            const completionDate = new Date(now);
+            
+            // Set completion time to 2 hours from now
+            completionDate.setHours(completionDate.getHours() + 2);
+            
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit',
+                timeZoneName: 'short'
+            };
+            
+            document.getElementById('completion-time').innerText = completionDate.toLocaleDateString(undefined, options);
+        }
+        
+        // Run once
+        updateCompletionTime();
+    </script>
+</body>
+</html>
