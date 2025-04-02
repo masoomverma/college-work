@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PRODUCTION MODE: Uncomment one of these redirects as needed -->
     <meta http-equiv="refresh" content="0;url=/coming-soon.html">
+    <!-- <meta http-equiv="refresh" content="0;url=/maintenance.html"> -->
     <title>College Work App</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- DEVELOPMENT MODE: Uncomment one of these redirects as needed -->
+    <!-- COMING SOON MODE -->
     <script>
       if (window.location.pathname === '/') {
         window.location.href = '/coming-soon.html';
       }
     </script>
+
+    <!-- MAINTENANCE MODE -->
+    <!-- <script>
+      if (window.location.pathname === '/') {
+        window.location.href = '/maintenance.html';
+      }
+    </script> -->
   </body>
 </html>
