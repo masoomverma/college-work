@@ -9,31 +9,53 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', 'Arial', sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
+            background: linear-gradient(135deg, #121212, #1e1e2f, #2d2b42);
+            color: #eaeaea;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: clamp(10px, 4vw, 20px);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            overflow-x: hidden;
+        }
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
         }
         .container {
-            max-width: 800px;
+            max-width: min(800px, 95%);
+            width: 95%;
             margin: 0 auto;
+            padding: clamp(15px, 3vw, 20px);
+            background-color: rgba(30, 30, 45, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
         h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3.2rem);
             margin-bottom: 20px;
+            background: linear-gradient(to right, #a18cd1, #fbc2eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(161, 140, 209, 0.4);
+            letter-spacing: 1px;
         }
         p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 30px;
             line-height: 1.6;
+            color: #d4d4d4;
         }
         .countdown {
             display: flex;
@@ -76,61 +98,358 @@
             cursor: pointer;
             font-weight: bold;
         }
+        
+        /* Content structure styling */
+        .content-structure {
+            background-color: rgba(25, 25, 35, 0.8);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: clamp(20px, 5vw, 40px);
+            margin-top: 50px;
+            text-align: left;
+            max-width: min(1000px, 95%);
+            width: 95%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .content-structure h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .content-structure h1:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+            border-radius: 2px;
+        }
+        
+        .content-structure p {
+            margin-bottom: 20px;
+            color: #b8b8b8;
+        }
+        
+        .content-structure p strong {
+            color: #ffffff;
+        }
+        
+        .section-item {
+            background: linear-gradient(145deg, rgba(43, 43, 65, 0.6), rgba(30, 30, 45, 0.6));
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(0);
+        }
+        
+        .section-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(145deg, rgba(43, 43, 65, 0.8), rgba(30, 30, 45, 0.8));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .section-title:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #a18cd1, #fbc2eb);
+            border-radius: 2px;
+        }
+        
+        .section-title strong {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-description {
+            padding-left: 20px;
+            border-left: 3px solid rgba(161, 140, 209, 0.3);
+            margin-left: 5px;
+        }
+        
+        .section-description p {
+            color: #d4d4d4;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-description ul {
+            margin-left: 20px;
+            margin-top: 15px;
+            list-style-type: none;
+        }
+        
+        .section-description li {
+            margin-bottom: 12px;
+            color: #b8b8b8;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .section-description li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #a18cd1;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 992px) {
+            .section-item {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content-structure {
+                padding: clamp(15px, 4vw, 25px);
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            h1 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+                margin-bottom: 15px;
+            }
+            
+            .section-item {
+                margin-bottom: 20px;
+            }
+            
+            .section-description li {
+                margin-bottom: 10px;
+                font-size: 0.95rem;
+            }
+            
+            .section-description p {
+                font-size: 1rem;
+            }
+            
+            .content-structure h1:after {
+                width: 80px;
+                height: 3px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+                padding-left: 12px;
+            }
+            
+            .section-title:before {
+                width: 3px;
+            }
+            
+            .section-description {
+                padding-left: 12px;
+                margin-left: 3px;
+                border-left-width: 2px;
+            }
+            
+            .section-item {
+                padding: 15px;
+            }
+            
+            .section-description li {
+                font-size: 0.9rem;
+                padding-left: 15px;
+            }
+            
+            .content-structure h1 {
+                padding-bottom: 12px;
+                margin-bottom: 25px;
+            }
+            
+            .content-structure p {
+                margin-bottom: 15px;
+            }
+            
+            .content-structure h1:after {
+                width: 60px;
+            }
+        }
+        
+        /* Fix for mobile touch interactions */
+        @media (hover: none) {
+            .section-item:hover {
+                transform: none;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            }
+        }
+        
+        /* Fix for very small screens */
+        @media (max-width: 360px) {
+            .section-title {
+                font-size: 1.1rem;
+            }
+            
+            .section-description li {
+                margin-bottom: 8px;
+            }
+            
+            .content-structure {
+                padding: 12px;
+            }
+        }
+
+        /* Add a modern scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(30, 30, 45, 0.2);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #a18cd1, #fbc2eb);
+            border-radius: 10px;
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h1>College Work App</h1>
         <p>We're working hard to bring you an amazing app that will revolutionize how you manage your college work. Stay tuned!</p>
+    </div>
+    
+    <div class="content-structure">
+        <h1>Content Structure of KnowledgeBase</h1>
+        <p><strong>Our platform is divided into multiple sections to organize and present academic content effectively.</strong></p>
+        <p><strong>Below are the key sections and their details:</strong></p>
         
-        <div class="countdown">
-            <div class="countdown-item">
-                <div class="countdown-number" id="days">00</div>
-                <div class="countdown-label">Days</div>
+        <div class="section-item">
+            <div class="section-title">
+                <strong>1. Notes & PDFs Section 📚</strong>
             </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="hours">00</div>
-                <div class="countdown-label">Hours</div>
+            <div class="section-description">
+                <p>This section provides downloadable study materials for different classes.</p>
+                <ul>
+                    <li>Categorized based on class sections. (e.g., CSE - A, CSE - B, etc.)</li>
+                    <li>Each class has its own dedicated page where students can find subject-wise notes and PDFs.</li>
+                    <li>Admins and Class Representatives (CRs) can upload, update, or delete materials for their respective class.</li>
+                    <li>Notes can include lecture slides, textbooks, handwritten notes, and reference PDFs.</li>
+                </ul>
             </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="minutes">00</div>
-                <div class="countdown-label">Minutes</div>
+        </div>
+        
+        <div class="section-item">
+            <div class="section-title">
+                <strong>2. Important Questions Section ❓</strong>
             </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="seconds">00</div>
-                <div class="countdown-label">Seconds</div>
+            <div class="section-description">
+                <p>A dedicated section for exam preparation materials, featuring important questions.</p>
+                <ul>
+                    <li>Sorted into different class sections. (CSE - A, CSE - B, etc.)</li>
+                    <li>Questions are categorized subject-wise for easier navigation.</li>
+                    <li>CRs and Admins can update and add new important questions as per syllabus updates.</li>
+                    <li>Helps students focus on key topics for exams.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section-item">
+            <div class="section-title">
+                <strong>3. Class Timetable for Different Sections 📅</strong>
+            </div>
+            <div class="section-description">
+                <p>Provides up-to-date class schedules for all sections.</p>
+                <ul>
+                    <li>Daily and weekly views of class schedules.</li>
+                    <li>Subject-wise timing information.</li>
+                    <li>Special classes and schedule changes highlighted.</li>
+                    <li>Option to download timetables in PDF format.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section-item">
+            <div class="section-title">
+                <strong>4. Announcements Section 📢</strong>
+            </div>
+            <div class="section-description">
+                <p>This section provides important updates and notices for students.</p>
+                <ul>
+                    <li>Public Announcements: General updates visible to all students across all sections.</li>
+                    <li>Private Announcements: Specific updates only visible within a particular class section.</li>
+                    <li>Only Admins & CRs can post and manage announcements.</li>
+                    <li>Helps in sharing event details, exam schedules, urgent notices, and other important information.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section-item">
+            <div class="section-title">
+                <strong>5. Class Sections 🏫</strong>
+            </div>
+            <div class="section-description">
+                <p>Each class has its own dedicated space where students can find all relevant resources.</p>
+                <ul>
+                    <li>Separate pages for each class (CSE - A, CSE - B, etc.)</li>
+                    <li>Includes: Notes & PDFs, Important Questions, Class-Specific Announcements.</li>
+                    <li>Ensures that students only see content relevant to their class while allowing access to resources from other classes if needed.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section-item">
+            <div class="section-title">
+                <strong>6. Commenting & Feedback System 💭</strong>
+            </div>
+            <div class="section-description">
+                <p>Provides information about the platform, including:</p>
+                <ul>
+                    <li>Team Details.</li>
+                    <li>Class Representative (CR) names & Registration numbers.</li>
+                    <li>Updates & upcoming features.</li>
+                    <li>Ensures transparency and keeps students informed about new changes.</li>
+                </ul>
             </div>
         </div>
     </div>
-
-    <script>
-        // Set the launch date (1 month from now)
-        const launchDate = new Date();
-        launchDate.setMonth(launchDate.getMonth() + 1);
-        
-        // Update countdown every second
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-            
-            // Calculate days, hours, minutes, seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            // Display countdown
-            document.getElementById("days").innerText = String(days).padStart(2, "0");
-            document.getElementById("hours").innerText = String(hours).padStart(2, "0");
-            document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
-            document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
-        }
-        
-        // Run once immediately
-        updateCountdown();
-        
-        // Update every second
-        setInterval(updateCountdown, 1000);
-    </script>
 </body>
 </html>
